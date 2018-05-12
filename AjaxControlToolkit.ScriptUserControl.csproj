@@ -1,5 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net4</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>CodePlex Foundation</Company>
+    <Product>ASP.NET AJAX Control Toolkit - ScriptUserControl</Product>
+    <Copyright>Copyright © CodePlex Foundation 2012-2018</Copyright>
+    <Authors>CodePlex Foundation</Authors>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AjaxControlToolkit" Version="18.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
 </Project>
