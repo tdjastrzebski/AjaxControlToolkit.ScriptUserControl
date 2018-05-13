@@ -5,13 +5,13 @@
     <Company>CodePlex Foundation</Company>
     <Product>ASP.NET AJAX Control Toolkit - ScriptUserControl</Product>
     <Copyright>Copyright © CodePlex Foundation 2012-2018</Copyright>
-    <Authors>CodePlex Foundation, Tomasz Jastrzębski</Authors>
+    <Authors>CodePlex Foundation</Authors>
     <RepositoryUrl>https://github.com/tdjastrzebski/AjaxControlToolkit.ScriptUserControl</RepositoryUrl>
     <Description>ScriptUserControl is used to define complex user controls which support ASP.NET AJAX script extensions.
 ScriptUserControl class missing from AjaxControlToolkit since version 15.1.
 Adding this class back was made possible since version 18.1 - see issue #347.
 https://github.com/DevExpress/AjaxControlToolkit/pull/347</Description>
-    <Version>18.1.0</Version>
+    <Version>18.1.1</Version>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/tdjastrzebski/AjaxControlToolkit.ScriptUserControl</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/tdjastrzebski/AjaxControlToolkit.ScriptUserControl/blob/master/LICENSE.txt</PackageLicenseUrl>
