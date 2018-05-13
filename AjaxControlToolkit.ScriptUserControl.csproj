@@ -2,10 +2,18 @@
   <PropertyGroup>
     <TargetFramework>net4</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Company>CodePlex Foundation</Company>
+    <Company></Company>
     <Product>ASP.NET AJAX Control Toolkit - ScriptUserControl</Product>
     <Copyright>Copyright © CodePlex Foundation 2012-2018</Copyright>
-    <Authors>CodePlex Foundation</Authors>
+    <Authors>Tomasz Jastrzębski</Authors>
+    <RepositoryUrl>https://github.com/tdjastrzebski/AjaxControlToolkit.ScriptUserControl</RepositoryUrl>
+    <Description>The package contains ScriptUserControl class missing from AjaxControlToolkit since version 15.1.
+Adding this class back was made possible since version 18.1 - see issue #347.
+https://github.com/DevExpress/AjaxControlToolkit/pull/347</Description>
+    <Version>18.1.0</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\net4\AjaxControlToolkit.ScriptUserControl.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AjaxControlToolkit" Version="18.1.0" />
