@@ -12,8 +12,9 @@ Adding this class back was made possible since version 18.1 - see issue #347.
 https://github.com/DevExpress/AjaxControlToolkit/pull/347</Description>
     <Version>18.1.0</Version>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://github.com/tdjastrzebski/AjaxControlToolkit.ScriptUserControl</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/DevExpress/AjaxControlToolkit/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/tdjastrzebski/AjaxControlToolkit.ScriptUserControl/blob/master/LICENSE.txt</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/DevExpress/AjaxControlToolkit/LICENSE.txt</PackageLicenseUrl>
+    <PackageTags>Toolkit, Ajax</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\net4\AjaxControlToolkit.ScriptUserControl.xml</DocumentationFile>
