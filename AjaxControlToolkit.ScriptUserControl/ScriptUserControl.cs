@@ -20,11 +20,11 @@ namespace AjaxControlToolkit
     {
         #region [ Fields ]
 
+        private readonly HtmlTextWriterTag _tagKey;
+        private readonly bool _enableClientState;
         private ScriptManager _scriptManager;
-        private bool _enableClientState;
         private string _cachedClientStateFieldID;
         private string _callbackArgument;
-        private HtmlTextWriterTag _tagKey;
         private string _tagName;
         private Style _controlStyle;
 
@@ -102,157 +102,122 @@ namespace AjaxControlToolkit
         /// Note to inheritors: If you do not wish the user to set the script path, override script path and throw a NotSupportedException on set.  Also decorate the ScriptPath attribute with a [Browsable(false)] and [EditorBrowsableState(EditorBrowsableState.Never)]
         /// </remarks>
         [DefaultValue("")]
-        public virtual string ScriptPath
-        {
+        public virtual string ScriptPath {
             get { return (string)(ViewState["ScriptPath"] ?? string.Empty); }
             set { ViewState["ScriptPath"] = value; }
         }
 
         [DefaultValue(typeof(Color), "")]
         [TypeConverter(typeof(WebColorConverter))]
-        public virtual Color BackColor
-        {
-            get
-            {
-                if (!ControlStyleCreated)
-                {
+        public virtual Color BackColor {
+            get {
+                if (!ControlStyleCreated) {
                     return Color.Empty;
                 }
                 return _controlStyle.BackColor;
             }
-            set
-            {
+            set {
                 ControlStyle.BackColor = value;
             }
         }
 
         [DefaultValue(typeof(Color), "")]
         [TypeConverter(typeof(WebColorConverter))]
-        public virtual Color BorderColor
-        {
-            get
-            {
-                if (!ControlStyleCreated)
-                {
+        public virtual Color BorderColor {
+            get {
+                if (!ControlStyleCreated) {
                     return Color.Empty;
                 }
                 return _controlStyle.BorderColor;
             }
-            set
-            {
+            set {
                 ControlStyle.BorderColor = value;
             }
         }
 
         [DefaultValue(BorderStyle.None)]
-        public virtual BorderStyle BorderStyle
-        {
-            get
-            {
-                if (!ControlStyleCreated)
-                {
+        public virtual BorderStyle BorderStyle {
+            get {
+                if (!ControlStyleCreated) {
                     return BorderStyle.None;
                 }
                 return _controlStyle.BorderStyle;
             }
-            set
-            {
+            set {
                 ControlStyle.BorderStyle = value;
             }
         }
 
         [DefaultValue(typeof(Unit), "")]
-        public virtual Unit BorderWidth
-        {
-            get
-            {
-                if (!ControlStyleCreated)
-                {
+        public virtual Unit BorderWidth {
+            get {
+                if (!ControlStyleCreated) {
                     return Unit.Empty;
                 }
                 return _controlStyle.BorderWidth;
             }
-            set
-            {
+            set {
                 ControlStyle.BorderWidth = value;
             }
         }
 
         [DefaultValue("")]
-        public virtual string CssClass
-        {
-            get
-            {
-                if (!ControlStyleCreated)
-                {
+        public virtual string CssClass {
+            get {
+                if (!ControlStyleCreated) {
                     return string.Empty;
                 }
                 return _controlStyle.CssClass;
             }
-            set
-            {
+            set {
                 ControlStyle.CssClass = value;
             }
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [NotifyParentProperty(true)]
-        public virtual FontInfo Font
-        {
-            get
-            {
+        public virtual FontInfo Font {
+            get {
                 return ControlStyle.Font;
             }
         }
 
         [DefaultValue(typeof(Color), "")]
         [TypeConverter(typeof(WebColorConverter))]
-        public virtual Color ForeColor
-        {
-            get
-            {
-                if (!ControlStyleCreated)
-                {
+        public virtual Color ForeColor {
+            get {
+                if (!ControlStyleCreated) {
                     return Color.Empty;
                 }
                 return ControlStyle.ForeColor;
             }
-            set
-            {
+            set {
                 ControlStyle.ForeColor = value;
             }
         }
 
         [DefaultValue(typeof(Unit), "")]
-        public virtual Unit Height
-        {
-            get
-            {
-                if (!ControlStyleCreated)
-                {
+        public virtual Unit Height {
+            get {
+                if (!ControlStyleCreated) {
                     return Unit.Empty;
                 }
                 return ControlStyle.Height;
             }
-            set
-            {
+            set {
                 ControlStyle.Height = value;
             }
         }
 
         [DefaultValue(typeof(Unit), "")]
-        public virtual Unit Width
-        {
-            get
-            {
-                if (!ControlStyleCreated)
-                {
+        public virtual Unit Width {
+            get {
+                if (!ControlStyleCreated) {
                     return Unit.Empty;
                 }
                 return ControlStyle.Width;
             }
-            set
-            {
+            set {
                 ControlStyle.Width = value;
             }
         }
@@ -262,15 +227,11 @@ namespace AjaxControlToolkit
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Style ControlStyle
-        {
-            get
-            {
-                if (_controlStyle == null)
-                {
+        public Style ControlStyle {
+            get {
+                if (_controlStyle == null) {
                     _controlStyle = CreateControlStyle();
-                    if (IsTrackingViewState)
-                    {
+                    if (IsTrackingViewState) {
                         ((IStateManager)_controlStyle).TrackViewState();
                     }
                 }
@@ -283,8 +244,7 @@ namespace AjaxControlToolkit
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public bool ControlStyleCreated
-        {
+        public bool ControlStyleCreated {
             get { return _controlStyle != null; }
         }
 
@@ -293,18 +253,15 @@ namespace AjaxControlToolkit
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public CssStyleCollection Style
-        {
+        public CssStyleCollection Style {
             get { return Attributes.CssStyle; }
         }
 
         /// <summary>
         /// The script type to use for the ScriptControl
         /// </summary>
-        protected virtual string ClientControlType
-        {
-            get
-            {
+        protected virtual string ClientControlType {
+            get {
                 ClientScriptResourceAttribute attr = (ClientScriptResourceAttribute)TypeDescriptor.GetAttributes(this)[typeof(ClientScriptResourceAttribute)];
                 return attr.ComponentType;
             }
@@ -316,18 +273,15 @@ namespace AjaxControlToolkit
         /// <remarks>
         /// Note to inheritors: You should either pass true to the constructor for enableClientState or override this property to enable client state for inherited controls.
         /// </remarks>
-        protected virtual bool SupportsClientState
-        {
+        protected virtual bool SupportsClientState {
             get { return _enableClientState; }
         }
 
         /// <summary>
         /// Gets the ScriptManager for the page
         /// </summary>
-        protected ScriptManager ScriptManager
-        {
-            get
-            {
+        protected ScriptManager ScriptManager {
+            get {
                 EnsureScriptManager();
                 return _scriptManager;
             }
@@ -337,12 +291,9 @@ namespace AjaxControlToolkit
         /// The ID of the ClientState field
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase", Justification = "Following ASP.NET AJAX pattern")]
-        protected string ClientStateFieldID
-        {
-            get
-            {
-                if (_cachedClientStateFieldID == null)
-                {
+        protected string ClientStateFieldID {
+            get {
+                if (_cachedClientStateFieldID == null) {
                     _cachedClientStateFieldID = ClientID + "_ClientState";
                 }
                 return _cachedClientStateFieldID;
@@ -353,10 +304,8 @@ namespace AjaxControlToolkit
         /// Gets the tag key used when rendering the outer wrapper element for this user control
         /// </summary>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
-        protected virtual HtmlTextWriterTag TagKey
-        {
-            get
-            {
+        protected virtual HtmlTextWriterTag TagKey {
+            get {
                 return _tagKey;
             }
         }
@@ -366,12 +315,9 @@ namespace AjaxControlToolkit
         /// </summary>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "CA1308:NormalizeStringsToUppercase", Justification = "Avoiding possibly breaking change")]
-        protected virtual string TagName
-        {
-            get
-            {
-                if (_tagName == null && TagKey != HtmlTextWriterTag.Unknown)
-                {
+        protected virtual string TagName {
+            get {
+                if (_tagName == null && TagKey != HtmlTextWriterTag.Unknown) {
                     _tagName = Enum.Format(typeof(HtmlTextWriterTag), TagKey, "G").ToLower(CultureInfo.InvariantCulture);
                 }
                 return _tagName;
@@ -387,12 +333,10 @@ namespace AjaxControlToolkit
         /// </summary>
         private void EnsureScriptManager()
         {
-            if (_scriptManager == null)
-            {
+            if (_scriptManager == null) {
                 _scriptManager = ScriptManager.GetCurrent(Page);
 
-                if (_scriptManager == null)
-                {
+                if (_scriptManager == null) {
                     throw new HttpException("A ScriptManager is required on the page to use ASP.NET AJAX Script Components.");
                 }
             }
@@ -406,15 +350,12 @@ namespace AjaxControlToolkit
         public override Control FindControl(string id)
         {
             Control control = base.FindControl(id);
-            if (control != null)
-            {
+            if (control != null) {
                 return control;
             }
-            for (Control container = NamingContainer; container != null; container = container.NamingContainer)
-            {
+            for (Control container = NamingContainer; container != null; container = container.NamingContainer) {
                 control = container.FindControl(id);
-                if (control != null)
-                {
+                if (control != null) {
                     return control;
                 }
             }
@@ -429,18 +370,14 @@ namespace AjaxControlToolkit
         /// <param name="writer"></param>
         public virtual void RenderBeginTag(HtmlTextWriter writer)
         {
-            if (null == writer)
-            {
+            if (null == writer) {
                 throw new ArgumentNullException("writer");
             }
             AddAttributesToRender(writer);
             HtmlTextWriterTag tagKey = TagKey;
-            if (tagKey != HtmlTextWriterTag.Unknown)
-            {
+            if (tagKey != HtmlTextWriterTag.Unknown) {
                 writer.RenderBeginTag(tagKey);
-            }
-            else
-            {
+            } else {
                 writer.RenderBeginTag(TagName);
             }
         }
@@ -451,8 +388,7 @@ namespace AjaxControlToolkit
         /// <param name="writer"></param>
         public virtual void RenderEndTag(HtmlTextWriter writer)
         {
-            if (null == writer)
-            {
+            if (null == writer) {
                 throw new ArgumentNullException("writer");
             }
             writer.RenderEndTag();
@@ -483,8 +419,7 @@ namespace AjaxControlToolkit
 
             EnsureID();
 
-            if (SupportsClientState)
-            {
+            if (SupportsClientState) {
                 ScriptManager.RegisterHiddenField(this, ClientStateFieldID, SaveClientState());
                 Page.RegisterRequiresPostBack(this);
             }
@@ -522,8 +457,7 @@ namespace AjaxControlToolkit
         /// <returns></returns>
         protected override object SaveViewState()
         {
-            if (ControlStyleCreated)
-            {
+            if (ControlStyleCreated) {
                 ((IStateManager)ControlStyle).SaveViewState();
             }
             return base.SaveViewState();
@@ -537,11 +471,9 @@ namespace AjaxControlToolkit
         /// <returns></returns>
         protected virtual bool LoadPostData(string postDataKey, NameValueCollection postCollection)
         {
-            if (SupportsClientState)
-            {
+            if (SupportsClientState) {
                 string clientState = postCollection[ClientStateFieldID];
-                if (!string.IsNullOrEmpty(clientState))
-                {
+                if (!string.IsNullOrEmpty(clientState)) {
                     LoadClientState(clientState);
                 }
             }
@@ -583,35 +515,27 @@ namespace AjaxControlToolkit
         /// <param name="writer"></param>
         protected virtual void AddAttributesToRender(HtmlTextWriter writer)
         {
-            if (ID != null)
-            {
+            if (ID != null) {
                 writer.AddAttribute(HtmlTextWriterAttribute.Id, ClientID);
             }
-            if (TagKey == HtmlTextWriterTag.Span || TagKey == HtmlTextWriterTag.A)
-            {
+            if (TagKey == HtmlTextWriterTag.Span || TagKey == HtmlTextWriterTag.A) {
                 AddDisplayInlineBlockIfNeeded(writer);
             }
-            if (ControlStyleCreated && !ControlStyle.IsEmpty)
-            {
+            if (ControlStyleCreated && !ControlStyle.IsEmpty) {
                 // unfortunately since we're not a "WebControl" we can't pass ourselves as a UrlResolver
                 ControlStyle.AddAttributesToRender(writer);
             }
-            foreach (string key in Attributes.Keys)
-            {
+            foreach (string key in Attributes.Keys) {
                 writer.AddAttribute(key, Attributes[key]);
             }
         }
 
         private void AddDisplayInlineBlockIfNeeded(HtmlTextWriter writer)
         {
-            if (BorderStyle != BorderStyle.NotSet || !BorderWidth.IsEmpty || !Height.IsEmpty || !Width.IsEmpty)
-            {
-                if (Request.Browser.IsBrowser("FireFox") || Request.Browser.IsBrowser("Mozilla"))
-                {
+            if (BorderStyle != BorderStyle.NotSet || !BorderWidth.IsEmpty || !Height.IsEmpty || !Width.IsEmpty) {
+                if (Request.Browser.IsBrowser("FireFox") || Request.Browser.IsBrowser("Mozilla")) {
                     writer.AddStyleAttribute(HtmlTextWriterStyle.Display, "-moz-inline-box");
-                }
-                else
-                {
+                } else {
                     writer.AddStyleAttribute(HtmlTextWriterStyle.Display, "inline-block");
                 }
             }
@@ -663,8 +587,7 @@ namespace AjaxControlToolkit
             // see: ScriptControlBase implementation
             ComponentDescriber.DescribeComponent(this, new ScriptComponentDescriptorWrapper(descriptor), this.Page, this);
 
-            if (SupportsClientState)
-            {
+            if (SupportsClientState) {
                 descriptor.AddElementProperty("clientStateField", ClientStateFieldID);
             }
         }
@@ -703,8 +626,7 @@ namespace AjaxControlToolkit
             // call the method
             object result = null;
             string error = null;
-            try
-            {
+            try {
                 // Find a matching static or instance method.  Only public methods can be invoked
                 var mi = controlType.GetMethod(methodName, BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance);
                 if (mi == null)
@@ -719,19 +641,15 @@ namespace AjaxControlToolkit
                 // Convert each argument to the parameter type if possible
                 // NOTE: I'd rather have the ObjectConverter from within System.Web.Script.Serialization namespace for this
                 var targetArgs = new object[args.Length];
-                for (var i = 0; i < targetArgs.Length; i++)
-                {
+                for (var i = 0; i < targetArgs.Length; i++) {
                     if (args[i] == null)
                         continue;
                     targetArgs[i] = Convert.ChangeType(args[i], methodParams[i].ParameterType, CultureInfo.InvariantCulture);
                 }
                 result = mi.Invoke(this, targetArgs);
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 // Catch the exception information to relay back to the client
-                if (ex is TargetInvocationException)
-                {
+                if (ex is TargetInvocationException) {
                     ex = ex.InnerException;
                 }
                 error = ex.GetType().FullName + ":" + ex.Message;
@@ -739,14 +657,11 @@ namespace AjaxControlToolkit
 
             // return the result
             var resultInfo = new Dictionary<string, object>();
-            if (error == null)
-            {
+            if (error == null) {
                 resultInfo["result"] = result;
                 if (csm != null && csm.SupportsClientState)
                     resultInfo["state"] = csm.SaveClientState();
-            }
-            else
-            {
+            } else {
                 resultInfo["error"] = error;
             }
 
@@ -819,8 +734,7 @@ namespace AjaxControlToolkit
 
         #region [ IClientStateManager Members ]
 
-        bool IClientStateManager.SupportsClientState
-        {
+        bool IClientStateManager.SupportsClientState {
             get { return SupportsClientState; }
         }
 
