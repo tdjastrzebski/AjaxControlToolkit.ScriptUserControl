@@ -7,6 +7,9 @@ using System.Web.UI;
 
 [assembly: WebResource("AjaxControlToolkit.ScriptUserControlDemo.MyWebUserControl.js", "application/x-javascript")]
 
+// Note: Instead of embedding and declaring script can be registered using:
+// ScriptManager.RegisterClientScriptInclude(this, this.GetType(), "AjaxControlToolkit.ScriptUserControlDemo.MyWebUserControl", ResolveClientUrl("~/MyWebUserControl.js"));
+
 namespace AjaxControlToolkit.ScriptUserControlDemo
 {
 	[ClientScriptResource("AjaxControlToolkit.ScriptUserControlDemo.MyWebUserControl", "AjaxControlToolkit.ScriptUserControlDemo.MyWebUserControl")]
