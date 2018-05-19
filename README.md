@@ -5,4 +5,4 @@ It allows for combining aspx controls together and adding client script.
 
 Adding this class back was finally made possible thanks to the changes introduced in version 18.1 - see issue [#347](https://github.com/DevExpress/AjaxControlToolkit/pull/347) for the full story.
 
-My orginal demo application has been posted back in 2007: [How to preserve my Sys.UI.Control properties across postbacks??](https://forums.asp.net/t/1119462.aspx?How+to+preserve+my+Sys+UI+Control+properties+across+postbacks+)
+The orginal demo application has been posted back in 2007: [How to preserve my Sys.UI.Control properties across postbacks??](https://forums.asp.net/t/1119462.aspx?How+to+preserve+my+Sys+UI+Control+properties+across+postbacks+)
