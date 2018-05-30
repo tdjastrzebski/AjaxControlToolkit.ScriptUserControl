@@ -9,8 +9,7 @@ The orginal demo application has been posted back in 2007: [How to preserve my S
 
 Installation packege is available from NuGet: `PM> Install-Package AjaxControlToolkit.ScriptUserControl`
 
-**Note**: breaking change was introuduced to the namespace. You may need to fix the last line of the control java scripts and reqister your class using **Sys.Extended.UI.ControlBase** instead of **AjaxControlToolkit.ControlBase**.\
-Example: change\
+**Note**: breaking change was introuduced to the namespace. You may need to fix the last line of the control java scripts and reqister your class using **Sys.Extended.UI.ControlBase** instead of **AjaxControlToolkit.ControlBase**. Example: change\
 `MyApplication.MyWebUserControl.registerClass('MyApplication.MyWebUserControl', AjaxControlToolkit.ControlBase);`\
 to\
 `MyApplication.MyWebUserControl.registerClass('MyApplication.MyWebUserControl', Sys.Extended.UI.ControlBase);`
