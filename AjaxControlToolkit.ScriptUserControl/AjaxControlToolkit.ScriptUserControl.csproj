@@ -15,8 +15,10 @@ https://github.com/DevExpress/AjaxControlToolkit/pull/347</Description>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/tdjastrzebski/AjaxControlToolkit.ScriptUserControl</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/tdjastrzebski/AjaxControlToolkit.ScriptUserControl/blob/master/LICENSE.txt</PackageLicenseUrl>
-    <PackageTags>Toolkit, Ajax</PackageTags>
+    <PackageTags>Ajax, Toolkit</PackageTags>
     <RootNamespace>AjaxControlToolkit</RootNamespace>
+    <AssemblyVersion>18.1.2.0</AssemblyVersion>
+    <FileVersion>18.1.2.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\net4\AjaxControlToolkit.ScriptUserControl.xml</DocumentationFile>

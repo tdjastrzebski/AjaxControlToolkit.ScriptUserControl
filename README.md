@@ -8,3 +8,7 @@ Adding this class back was finally made possible thanks to the changes introduce
 The orginal demo application has been posted back in 2007: [How to preserve my Sys.UI.Control properties across postbacks??](https://forums.asp.net/t/1119462.aspx?How+to+preserve+my+Sys+UI+Control+properties+across+postbacks+)
 
 Installation packege is available from NuGet: `PM> Install-Package AjaxControlToolkit.ScriptUserControl`
+
+__Note__: breaking change was introuduced to the namespace. You may need to fix the last line of the control java scripts and reqister your class using **Sys.Extended.UI.ControlBase** instead of **AjaxControlToolkit.ControlBase**.
+For example change `MyApplication.MyWebUserControl.registerClass('MyApplication.MyWebUserControl', **AjaxControlToolkit.ControlBase**);`
+to `MyApplication.MyWebUserControl.registerClass('MyApplication.MyWebUserControl', **Sys.Extended.UI.ControlBase**);`
