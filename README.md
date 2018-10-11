@@ -1,5 +1,5 @@
 ### Package Description
-**ScriptUserControl** is used to define complex user controls which support ASP.NET AJAX script extensions.
+**ScriptUserControl** is AjaxControlToolkit extension used to define complex user controls which support ASP.NET AJAX script extensions.
 It allows for combining aspx controls together and adding client script.\
 **ScriptUserControl** originally available in **AjaxControlToolkit** was removed from the package since DevExpress-driven version 15.1.\
 Adding this class back was finally made possible thanks to the changes introduced in version 18.1 - see issue [#347](https://github.com/DevExpress/AjaxControlToolkit/pull/347) for the full story.\
