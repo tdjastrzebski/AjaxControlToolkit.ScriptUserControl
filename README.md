@@ -10,3 +10,6 @@ Installation packege is available from NuGet: `PM> Install-Package AjaxControlTo
 > `MyApplication.MyWebUserControl.registerClass('MyApplication.MyWebUserControl', AjaxControlToolkit.ControlBase);`\
 > to\
 > `MyApplication.MyWebUserControl.registerClass('MyApplication.MyWebUserControl', Sys.Extended.UI.ControlBase);`
+
+### Feedback
+Do not hesitate to rate this repo and/or leave comments/suggestions if you find my work useful.
